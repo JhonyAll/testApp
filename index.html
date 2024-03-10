@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head lang="pt-br">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Configurações do seu projeto Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyC0l3wUegS3FC8bI7gPkeAFQAbLWTNcOPM",
+        authDomain: "testproject-5865c.firebaseapp.com",
+        projectId: "testproject-5865c",
+        storageBucket: "testproject-5865c.appspot.com",
+        messagingSenderId: "740133939777",
+        appId: "1:740133939777:web:f76c52698862470d6ab4c0",
+      };
+
+      // Inicializar o Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Obter uma referência para o Firestore
+      var db = firebase.firestore();
+
+      // Ler dados da coleção "usuario"
+      db.collection("usuario")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(`Id: ${doc.id}, Dados: ${JSON.stringify(doc.data())}`);
+          });
+        })
+        .catch((error) => {
+          console.error("Erro ao ler os dados: ", error);
+        });
+    </script>
+  </body>
+</html>
