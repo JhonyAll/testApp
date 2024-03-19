@@ -1,28 +1,17 @@
-import Filmes from "@/components/Filmes";
+import Filmes from "@/components/filmes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Filmes",
+};
 
 const FilmesPage = async () => {
-    let filmes;
-
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwOWY5MTAyZTAxNzQzMWJhZGZiNDBkMDA4ZjY1NDEzNSIsInN1YiI6IjYzZWY4ZDQ2ZWE4NGM3MDA5NmVmYTE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pX14UtP6uIfifrvNvEO0kia6o_gC5N_iydUf9sII1Fk",
-    },
-  };
-
-  await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => {filmes = response})
-    .catch((err) => console.error(err));
+  const response = await fetch("http://localhost:3000/api/filmes");
+  const movies = (await response.json()) as FilmeType[];
 
   return (
-    <div>
-      <Filmes filmes={filmes} />
+    <div className="bg-gray-300 p-4">
+      <Filmes filmes={movies} />
     </div>
   );
 };
