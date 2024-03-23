@@ -1,3 +1,3 @@
 export const GET = async () => {
-    return Response.json({ 'mensage' : 'API Acessed' })
-}
+  return Response.json({ mensage: "API Acessed" });
+};

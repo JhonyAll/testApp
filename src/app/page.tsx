@@ -1,7 +1,11 @@
+import Login from "@/components/login";
+
 const Home = () => {
   return (
-    <main className="flex gap-4 flex-col justify-center	align-center w-full h-full">
-      <input
+    <main className="h-screen grid place-items-center">
+      {/* flex gap-4 flex-col justify-center	align-center w-full h-full */}
+      <Login />
+      {/* <input
         type="text"
         name=""
         id=""
@@ -10,7 +14,7 @@ const Home = () => {
       />
       <button className="w-80 h-12 bg-purple-300 hover:bg-purple-400 rounded">
         Enviar
-      </button>
+      </button> */}
     </main>
   );
 };
